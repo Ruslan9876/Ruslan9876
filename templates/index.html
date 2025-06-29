@@ -2,11 +2,36 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>FastAPI сайт</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Добро пожаловать!</h1>
-    <p>Это FastAPI сайт с HTML + CSS.</p>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>AI Ассистент</h1>
+            <p>На базе вашей собственной модели</p>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <!-- Сообщения будут добавляться сюда через JavaScript -->
+            <div class="message ai-message">
+                <div class="message-icon">🤖</div>
+                <div class="message-text">Здравствуйте! Чем я могу вам помочь сегодня?</div>
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <form id="chat-form" class="chat-form">
+                <input type="text" id="prompt-input" placeholder="Введите ваш вопрос..." autocomplete="off" required>
+                <button type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', path='/script.js') }}"></script>
 </body>
 </html>
